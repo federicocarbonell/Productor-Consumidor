@@ -14,12 +14,12 @@ public class Productor extends Thread{
   }
   
   public void run() {
-    for(int i=0; i<6; i++){
+    for(int i=0; i<10; i++){
         char c=letras.charAt((int)(Math.random()*letras.length()));
         buffer.poner(c,numero);
         System.out.println(i+" Productor : " +numero + ", produciendo: "+ c);
         try {
-            sleep(400);
+            sleep(20);
         } catch (InterruptedException e) { }
     }
   }

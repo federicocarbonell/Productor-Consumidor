@@ -1,26 +1,30 @@
 
 package productorconsumidor;
 
+import java.io.Console;
+import java.util.Scanner;
+
 
 public class ProductorConsumidor {
 
     public static void main(String[] args) {
+    Scanner teclado = new Scanner(System.in);
     Buffer b=new Buffer();
-
-    Productor p1 = new Productor(b,1);
-    Consumidor c1 = new Consumidor(b,1);
-    Consumidor c3 = new Consumidor(b,3);
-    Productor p3 = new Productor(b,3);
-    Productor p2 = new Productor(b,2);
-    Consumidor c2 = new Consumidor(b,2);
+    System.out.println("Ingrese cuantos productores quiere crear");
+    String x = teclado.nextLine();
+    int cons = Integer.parseInt(x);
+    for (int i = 0; i < cons; i++) {
+        Consumidor consumidor = new Consumidor(b,i);
+        consumidor.start();
+    }
+    System.out.println("Ingrese cuantos consumidores quiere crear");
+    String z = teclado.nextLine();
+    int prod= Integer.parseInt(z);
+    for (int i = 0; i < prod; i++) {
+        Productor productor = new Productor(b,i);
+        productor.start();
+    }
     
-    p1.start();
-    c1.start();
-    c3.start();
-    p3.start();
-    p2.start();
-    c2.start();
-
 
     try  {
 //espera la pulsación de una tecla y luego RETORNO

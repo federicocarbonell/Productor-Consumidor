@@ -17,7 +17,7 @@ public class Consumidor extends Thread {
         valor=buffer.recoger(numero);
         System.out.println(i+ " Consumidor: "+ numero+ ", consumiendo :"+valor);
         try{
-            sleep(100);
+            sleep(20);
         }catch (InterruptedException e) { }
         
     }
